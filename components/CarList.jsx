@@ -1,11 +1,14 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Dimensions } from "react-native";
+import { Header } from "react-native/Libraries/NewAppScreen";
 import cars from "./cars";
+import HeaderScreen from "./Header";
 import Home from "./Home";
 
 const CarList = () => {
   return (
     <View style={styles.container}>
+      <HeaderScreen />
       <FlatList
         data={cars}
         renderItem={({ item }) => <Home cars={item} />}
