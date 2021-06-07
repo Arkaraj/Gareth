@@ -1,15 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Dimensions,
+} from "react-native";
 
 import CarButton from "./CarButton";
 
-const Home = ({ name, subTitle, image }) => {
+const Home = ({ cars }) => {
+  const { name, subTitle, hyperLinkText, image } = cars;
+
   return (
     <View style={styles.garethContainer}>
       <ImageBackground source={image} style={styles.image}>
         <View style={styles.headline}>
           <Text style={styles.title}>{name}</Text>
-          <Text style={styles.subTitle}>{subTitle}</Text>
+          <Text style={styles.subTitle}>
+            {subTitle} <Text style={styles.hyperLinkText}>{hyperLinkText}</Text>
+          </Text>
         </View>
       </ImageBackground>
 
@@ -36,7 +46,7 @@ const Home = ({ name, subTitle, image }) => {
 const styles = StyleSheet.create({
   garethContainer: {
     width: "100%",
-    height: "100%",
+    height: Dimensions.get("window").height,
   },
   image: {
     width: "100%",
@@ -61,6 +71,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 50,
     width: "100%",
+  },
+  hyperLinkText: {
+    textDecorationLine: "underline",
   },
 });
 

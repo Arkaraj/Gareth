@@ -8,10 +8,10 @@ const Button = ({ type, text, onPress }) => {
   return (
     <View style={styles.container}>
       <Pressable
-        style={[styles.button, { backgroundColor, color }]}
+        style={[styles.button, { backgroundColor }]}
         onPress={() => onPress()}
       >
-        <Text style={style.title}>{text}</Text>
+        <Text style={[styles.title, { color }]}>{text}</Text>
       </Pressable>
     </View>
   );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   button: {
-    height: "40%",
+    height: 40,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,
